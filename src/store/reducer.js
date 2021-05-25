@@ -1,3 +1,5 @@
+import { CHANGE_FIRST_COLOR } from '../actions';
+
 const initialState = {
   firstColor: '#e367a4',
   lastColor: '#48b1f3',
@@ -18,7 +20,7 @@ const reducer = (stateActuel = initialState, action = {}) => {
         lastColor: action.color,
         nbColors: stateActuel.nbColors + 1,
       };
-    case 'changeFirstColor':
+    case CHANGE_FIRST_COLOR:
       return {
         ...stateActuel,
         firstColor: action.color,

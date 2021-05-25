@@ -1,6 +1,7 @@
 // == Imports
 import store from './store';
 import { randomHexColor, generateSpanColor } from './utils';
+import { changeFirstColor } from './actions';
 
 console.log(store);
 
@@ -51,10 +52,7 @@ document.getElementById('randAll')
 
 document.getElementById('randFirst')
   .addEventListener('click', () => {
-    const action = {
-      type: 'changeFirstColor',
-      color: randomHexColor(),
-    };
+    const action = changeFirstColor(randomHexColor());
     store.dispatch(action);
   });
 
