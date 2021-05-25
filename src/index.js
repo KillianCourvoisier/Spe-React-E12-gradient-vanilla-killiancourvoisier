@@ -1,31 +1,26 @@
 // == Imports
-import { randomHexColor, generateSpanColor } from './utils';
+import store from './store';
+import { generateSpanColor } from './utils';
 
-// == State
-const state = {
-  firstColor: '#e367a4',
-  lastColor: '#48b1f3',
-  direction: '90deg',
-  nbColors: 0,
-};
+console.log(store);
 
 // == Rendu dans le DOM
 function renderNbColors() {
-  const { nbColors } = state;
+  const { nbColors } = store.getState();
 
   document.getElementById('nbColors').innerHTML = `
     ${nbColors} couleur(s) générée(s)
   `;
 }
 function renderGradient() {
-  const { direction, firstColor, lastColor } = state;
+  const { direction, firstColor, lastColor } = store.getState();
 
   document.getElementById('gradient').style.background = `
     linear-gradient(${direction},${firstColor},${lastColor})
   `;
 }
 function renderColors() {
-  const { direction, firstColor, lastColor } = state;
+  const { direction, firstColor, lastColor } = store.getState();
 
   const firstSpan = generateSpanColor(firstColor);
   const lastSpan = generateSpanColor(lastColor);
@@ -46,11 +41,14 @@ renderColors();
 document.getElementById('randAll')
   .addEventListener('click', () => {
     // debug
-    console.log('Random all colors');
+    const state = store.getState();
+
+    store.dispatch({ type: 'changeFirstColor' });
+    store.dispatch({ type: 'changeLastColor' });
     // data
-    state.nbColors += 2;
-    state.firstColor = randomHexColor();
-    state.lastColor = randomHexColor();
+    // state.nbColors += 2;
+    // state.firstColor = randomHexColor();
+    // state.lastColor = randomHexColor();
     // ui
     renderNbColors();
     renderGradient();
@@ -59,8 +57,14 @@ document.getElementById('randAll')
 
 document.getElementById('randFirst')
   .addEventListener('click', () => {
-    state.nbColors += 1;
-    state.firstColor = randomHexColor();
+    const state = store.getState();
+    console.log(state);
+    const action = {
+      type: 'changeFirstColor',
+    };
+    store.dispatch(action);
+    // state.nbColors += 1;
+    // state.firstColor = randomHexColor();
     renderNbColors();
     renderGradient();
     renderColors();
@@ -68,8 +72,14 @@ document.getElementById('randFirst')
 
 document.getElementById('randLast')
   .addEventListener('click', () => {
-    state.nbColors += 1;
-    state.lastColor = randomHexColor();
+    const state = store.getState();
+    console.log(state);
+    const action = {
+      type: 'changeLastColor',
+    };
+    store.dispatch(action);
+    // state.nbColors += 1;
+    // state.firstColor = randomHexColor();
     renderNbColors();
     renderGradient();
     renderColors();
