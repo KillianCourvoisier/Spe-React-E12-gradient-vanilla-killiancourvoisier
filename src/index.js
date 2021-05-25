@@ -1,6 +1,6 @@
 // == Imports
 import store from './store';
-import { generateSpanColor } from './utils';
+import { randomHexColor, generateSpanColor } from './utils';
 
 console.log(store);
 
@@ -32,69 +32,49 @@ function renderColors() {
   document.getElementById('colors').innerHTML = result;
 }
 
+const render = () => {
+  renderNbColors();
+  renderGradient();
+  renderColors();
+};
+
 // == Initialisation
-renderNbColors();
-renderGradient();
-renderColors();
+render();
+store.subscribe(render);
 
 // == Controls
 document.getElementById('randAll')
   .addEventListener('click', () => {
-    // debug
-    const state = store.getState();
-
-    store.dispatch({ type: 'changeFirstColor' });
-    store.dispatch({ type: 'changeLastColor' });
-    // data
-    // state.nbColors += 2;
-    // state.firstColor = randomHexColor();
-    // state.lastColor = randomHexColor();
-    // ui
-    renderNbColors();
-    renderGradient();
-    renderColors();
+    store.dispatch({ type: 'changeFirstColor', color: randomHexColor() });
+    store.dispatch({ type: 'changeLastColor', color: randomHexColor() });
   });
 
 document.getElementById('randFirst')
   .addEventListener('click', () => {
-    const state = store.getState();
-    console.log(state);
     const action = {
       type: 'changeFirstColor',
+      color: randomHexColor(),
     };
     store.dispatch(action);
-    // state.nbColors += 1;
-    // state.firstColor = randomHexColor();
-    renderNbColors();
-    renderGradient();
-    renderColors();
   });
 
 document.getElementById('randLast')
   .addEventListener('click', () => {
-    const state = store.getState();
-    console.log(state);
     const action = {
       type: 'changeLastColor',
+      color: randomHexColor(),
     };
     store.dispatch(action);
-    // state.nbColors += 1;
-    // state.firstColor = randomHexColor();
-    renderNbColors();
-    renderGradient();
-    renderColors();
   });
 
 document.getElementById('toLeft')
   .addEventListener('click', () => {
-    state.direction = '270deg';
-    renderGradient();
-    renderColors();
+    const action = { type: 'changeDirection', direction: '270deg' };
+    store.dispatch(action);
   });
 
 document.getElementById('toRight')
   .addEventListener('click', () => {
-    state.direction = '90deg';
-    renderGradient();
-    renderColors();
+    const action = { type: 'changeDirection', direction: '90deg' };
+    store.dispatch(action);
   });

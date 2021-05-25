@@ -1,5 +1,3 @@
-import { randomHexColor } from '../utils';
-
 const initialState = {
   firstColor: '#e367a4',
   lastColor: '#48b1f3',
@@ -9,15 +7,22 @@ const initialState = {
 
 const reducer = (stateActuel = initialState, action = {}) => {
   switch (action.type) {
+    case 'changeDirection':
+      return {
+        ...stateActuel,
+        direction: action.direction,
+      };
     case 'changeLastColor':
       return {
         ...stateActuel,
-        lastColor: randomHexColor(),
+        lastColor: action.color,
+        nbColors: stateActuel.nbColors + 1,
       };
     case 'changeFirstColor':
       return {
         ...stateActuel,
-        firstColor: randomHexColor(),
+        firstColor: action.color,
+        nbColors: stateActuel.nbColors + 1,
       };
     default:
       return stateActuel;
