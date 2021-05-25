@@ -1,7 +1,7 @@
 // == Imports
 import store from './store';
 import { randomHexColor, generateSpanColor } from './utils';
-import { changeFirstColor } from './actions';
+import { changeFirstColor, changeLastColor, changeDirection } from './actions';
 
 console.log(store);
 
@@ -46,8 +46,8 @@ store.subscribe(render);
 // == Controls
 document.getElementById('randAll')
   .addEventListener('click', () => {
-    store.dispatch({ type: 'changeFirstColor', color: randomHexColor() });
-    store.dispatch({ type: 'changeLastColor', color: randomHexColor() });
+    store.dispatch(changeFirstColor(randomHexColor()));
+    store.dispatch(changeLastColor(randomHexColor()));
   });
 
 document.getElementById('randFirst')
@@ -58,21 +58,18 @@ document.getElementById('randFirst')
 
 document.getElementById('randLast')
   .addEventListener('click', () => {
-    const action = {
-      type: 'changeLastColor',
-      color: randomHexColor(),
-    };
+    const action = changeLastColor(randomHexColor());
     store.dispatch(action);
   });
 
 document.getElementById('toLeft')
   .addEventListener('click', () => {
-    const action = { type: 'changeDirection', direction: '270deg' };
+    const action = changeDirection('270deg');
     store.dispatch(action);
   });
 
 document.getElementById('toRight')
   .addEventListener('click', () => {
-    const action = { type: 'changeDirection', direction: '90deg' };
+    const action = changeDirection('90deg');
     store.dispatch(action);
   });

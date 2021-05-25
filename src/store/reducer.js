@@ -1,4 +1,4 @@
-import { CHANGE_FIRST_COLOR } from '../actions';
+import { CHANGE_FIRST_COLOR, CHANGE_LAST_COLOR, CHANGE_DIRECTION } from '../actions';
 
 const initialState = {
   firstColor: '#e367a4',
@@ -9,12 +9,12 @@ const initialState = {
 
 const reducer = (stateActuel = initialState, action = {}) => {
   switch (action.type) {
-    case 'changeDirection':
+    case CHANGE_DIRECTION:
       return {
         ...stateActuel,
         direction: action.direction,
       };
-    case 'changeLastColor':
+    case CHANGE_LAST_COLOR:
       return {
         ...stateActuel,
         lastColor: action.color,
