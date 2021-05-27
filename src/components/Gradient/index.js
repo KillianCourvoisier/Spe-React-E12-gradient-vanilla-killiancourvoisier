@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // const Gradient = ({ direction, lastColor, firstColor }) => (
+// eslint-disable-next-line max-len
 // <div id="gradient" style={{ background: `linear-gradient(${direction},${firstColor},${lastColor})` }} />
 // );
 const Gradient = () => {

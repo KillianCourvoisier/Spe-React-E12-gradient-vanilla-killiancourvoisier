@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Import
-import Counter from '../Counter';
+import Counter from '../../containers/Counter';
 import Directions from '../Directions';
 import Gradient from '../../containers/Gradient';
 import RandomColors from '../RandomColors';
@@ -11,7 +11,7 @@ import './styles.css';
 // == Composant
 const App = () => (
   <div className="app">
-    <Counter total={0} />
+    <Counter />
     <RandomColors />
     <Gradient />
     <Directions />

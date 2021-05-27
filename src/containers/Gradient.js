@@ -10,8 +10,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {};
 
-const createContainer = connect(mapStateToProps, mapDispatchToProps);
+// const createContainer = connect(mapStateToProps, mapDispatchToProps);
 
-const monContainer = createContainer(Gradient);
+// const monContainer = createContainer(Gradient);
 
-export default monContainer;
+// export default monContainer;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gradient);
