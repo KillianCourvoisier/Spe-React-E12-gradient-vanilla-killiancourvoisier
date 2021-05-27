@@ -1,9 +1,9 @@
 import { CHANGE_FIRST_COLOR, CHANGE_LAST_COLOR, CHANGE_DIRECTION } from '../actions';
 
 const initialState = {
-  firstColor: '#e367a4',
-  lastColor: '#48b1f3',
-  direction: '90deg',
+  firstColor: '#f0f',
+  lastColor: '#ff0',
+  direction: '45deg',
   nbColors: 0,
 };
 
