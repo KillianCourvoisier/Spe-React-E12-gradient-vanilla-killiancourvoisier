@@ -4,8 +4,6 @@ Pour relier React et Redux, on va utiliser une librairie qui s'appelle React-Red
 
 Pour que notre app React ai accès au store de redux, je dois englober mon composant principal (App) dans le composant qui s'appelle Provider. Ce composant est fourni par react-redux, et attend que je lui donne en prop mon store. Grâce à ça, tous les composants à l'intérieur de mon App vont pouvoir se connecter au store.
 
-![](Synthèse%20React%20Redux.jpg)
-
 ## Les hooks
 
 React-Redux nous fourni des hooks que l'on peut utiliser directement à l'intérieur de nos composants React, soit pour consulter le state, soit pour pouvoir dispatcher des actions.
