@@ -26,9 +26,27 @@ function renderColors() {
   const firstSpan = generateSpanColor(firstColor);
   const lastSpan = generateSpanColor(lastColor);
 
-  const result = direction === '90deg'
-    ? `${firstSpan} → ${lastSpan}`
-    : `${lastSpan} ← ${firstSpan}`;
+  let result;
+
+  switch (direction) {
+    case '45deg':
+      result = `${firstSpan} &nearr; ${lastSpan}`;
+      break;
+    case '135deg':
+      result = `${firstSpan} &searr; ${lastSpan}`;
+      break;
+    case '225deg':
+      result = `${lastSpan} &swarr; ${firstSpan}`;
+      break;
+    case '270deg':
+      result = `${lastSpan} &#8592; ${firstSpan}`;
+      break;
+    case '315deg':
+      result = `${lastSpan} &nwarr; ${firstSpan}`;
+      break;
+    default:
+      result = `${firstSpan} &#8594; ${lastSpan}`;
+  }
 
   document.getElementById('colors').innerHTML = result;
 }
