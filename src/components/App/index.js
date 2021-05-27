@@ -5,7 +5,7 @@ import React from 'react';
 import Counter from '../../containers/Counter';
 import Directions from '../../containers/Directions';
 import Gradient from '../../containers/Gradient';
-import RandomColors from '../RandomColors';
+import RandomColors from '../../containers/RandomColors';
 import './styles.css';
 
 // == Composant
