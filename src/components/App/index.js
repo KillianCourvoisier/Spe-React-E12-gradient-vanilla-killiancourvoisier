@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import
 import Counter from '../../containers/Counter';
-import Directions from '../Directions';
+import Directions from '../../containers/Directions';
 import Gradient from '../../containers/Gradient';
 import RandomColors from '../RandomColors';
 import './styles.css';
