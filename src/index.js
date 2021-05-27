@@ -62,6 +62,30 @@ document.getElementById('randLast')
     store.dispatch(action);
   });
 
+document.getElementById('to45')
+  .addEventListener('click', () => {
+    const action = changeDirection('45deg');
+    store.dispatch(action);
+  });
+
+document.getElementById('to135')
+  .addEventListener('click', () => {
+    const action = changeDirection('135deg');
+    store.dispatch(action);
+  });
+
+document.getElementById('to225')
+  .addEventListener('click', () => {
+    const action = changeDirection('225deg');
+    store.dispatch(action);
+  });
+
+document.getElementById('to315')
+  .addEventListener('click', () => {
+    const action = changeDirection('315deg');
+    store.dispatch(action);
+  });
+
 document.getElementById('toLeft')
   .addEventListener('click', () => {
     const action = changeDirection('270deg');

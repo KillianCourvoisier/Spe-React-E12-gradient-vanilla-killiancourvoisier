@@ -12,18 +12,18 @@ const reducer = (stateActuel = initialState, action = {}) => {
     case CHANGE_DIRECTION:
       return {
         ...stateActuel,
-        direction: action.direction,
+        direction: action.payload,
       };
     case CHANGE_LAST_COLOR:
       return {
         ...stateActuel,
-        lastColor: action.color,
+        lastColor: action.payload,
         nbColors: stateActuel.nbColors + 1,
       };
     case CHANGE_FIRST_COLOR:
       return {
         ...stateActuel,
-        firstColor: action.color,
+        firstColor: action.payload,
         nbColors: stateActuel.nbColors + 1,
       };
     default:
